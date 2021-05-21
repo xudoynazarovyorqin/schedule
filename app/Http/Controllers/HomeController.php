@@ -25,12 +25,10 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         switch($user->role){
-            case 0:
+            case 1:
                 return view('home');
                 break;
-            case 1:
-                return view('teacher.teacher');
-                break;
+            
         }
     }
 }
