@@ -68,16 +68,16 @@
                   <option value="{{$group->number}}">{{$group->number}}</option>
                   @endforeach
                 </select>
-              </td>
-              <div class="inline">
-                <td>
+              </td >
+                <td class="text-center">
                   <button type="submit" class="btn btn-primary ">Search</button>
+                  <button class="btn btn-warning "><a href="/schedule">All</a></button>
+
                 </form>
-                <form action="{{url('/schedule')}}"  method="GET">
+                {{-- <form action="{{url('/schedule')}}"  method="GET">
                   <button type="submit" class="btn btn-warning ">All</button>
-                </form>
+                </form> --}}
               </td>
-            </div>
               
             </tr>
             
