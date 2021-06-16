@@ -59,7 +59,7 @@ body, html {
                 @auth
                 <a href="{{ url('/home') }}" class="text-sm text-gray-700 text-decoration-none text-light ">Home</a>
                 @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 text-decoration-none text-light ">Log in</a>
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 text-decoration-none text-light ">Kirish</a>
                 
                 {{-- @if (Route::has('register'))
                 <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
@@ -71,8 +71,8 @@ body, html {
         </div>
         <div class="bg-text">
         
-                <h1>Welcome to our School</h1><br>
-                <a href="/schedule" class="text-decoration-none text-light ">Schedule</a>
+                <h1>Universitetimiz saytiga xush kelibsiz</h1><br>
+                <a href="/schedule" class="text-decoration-none text-light ">Dars Jadvali</a>
             </div>
     </body>
 </html>

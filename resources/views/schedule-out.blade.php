@@ -47,7 +47,7 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 80%;
+  width: 90%;
   padding: 20px;
   text-align: center;
 }
@@ -56,18 +56,19 @@ body, html {
 <body>
   <div class="bg-image"></div>
   <div class="bg-login">
-    <h3 style="display: inline" class="text-center"><a href="/" class="text-sm text-gray-700 text-decoration-none text-light" >Home</a></h3>
+    <h3 style="display: inline" class="text-center"><a href="/" class="text-sm text-gray-700 text-decoration-none text-light" >Ortga</a></h3>
   </div>
       <div class="bg-text">
       <table class="table text-light table-bordered">
 
         <thead >
           <tr>
-            <th scope="col">Time</th>
-            <th scope="col">Room</th>
-            <th scope="col">Subject</th>
-            <th scope="col">Teacher</th>
-            <th scope="col">Group</th>
+            <th scope="col">Kun</th>
+            <th scope="col">Vaqt</th>
+            <th scope="col">Xona</th>
+            <th scope="col">Fan</th>
+            <th scope="col">O'qituvchi</th>
+            <th scope="col">Guruh</th>
           </tr>
         </thead>
         
@@ -76,18 +77,21 @@ body, html {
                 <form action="{{route('out-search')}}" method="POST">
 
             <td>
-                  <select name="time" class="filter-select ">
-                    <option  disabled selected value>select time</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
+                  <input name="day" type="date" class="filter-select ">
+                  </input>
+                </td>
+                <td>
+                <select name="time" class="filter-select">
+                  <option  disabled selected value>Parani tanlang</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
                 </td>
             <td>
                   <select name="room" class="filter-select">
-                  <option  disabled selected value>select room</option>
+                  <option  disabled selected value>Xonani tanlang</option>
                   @foreach ($rooms as $room)
                       <option value="{{$room->number}}">{{$room->number}}</option>
                   @endforeach
@@ -95,7 +99,7 @@ body, html {
               </td>
               <td>
                 <select name="subject" class="filter-select">
-                  <option disabled selected value>select subject</option>
+                  <option disabled selected value>fanni tanlang</option>
                   @foreach ($subjects as $subject)
                       <option value="{{$subject->name}}">{{$subject->name}}</option>
                   @endforeach
@@ -103,7 +107,7 @@ body, html {
               </td>
               <td>
                 <select name="teacher" class="filter-select">
-                  <option disabled selected value>select teacher</option>
+                  <option disabled selected value>o'qituvchini tanlang</option>
                   @foreach ($teachers as $teacher)
                       <option value="{{$teacher->name}}">{{$teacher->name}}</option>
                   @endforeach
@@ -111,7 +115,7 @@ body, html {
               </td>
               <td>
                 <select name="group" class="filter-select">
-                  <option disabled selected value>select group</option>
+                  <option disabled selected value>guruhni tanlang</option>
                   @foreach ($groups as $group)
                   <option value="{{$group->number}}">{{$group->number}}</option>
                   @endforeach
@@ -119,7 +123,7 @@ body, html {
               
                   @csrf
                   <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-search fa-fw">search</i>
+                    <i class="fas fa-search fa-fw">qidirish</i>
                   </button>
                 </td>
               </form>

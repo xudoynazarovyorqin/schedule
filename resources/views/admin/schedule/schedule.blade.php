@@ -13,23 +13,27 @@
     
         <table class="table" id="datatable">
           <thead class="table-dark">
-            <tr>
-              <th scope="col">Time</th>
-              <th scope="col">Room</th>
-              <th scope="col">Subject</th>
-              <th scope="col">Teacher</th>
-              <th scope="col">Group</th>
-              <th  class="m-auto text-center"></th>
-              
-            </tr>
+          <tr>
+            <th scope="col" class="text-center">Kun</th>
+            <th scope="col" class="text-center">Vaqt</th>
+            <th scope="col" class="text-center">Xona</th>
+            <th scope="col" class="text-center">Fan</th>
+            <th scope="col" class="text-center">O'qituvchi</th>
+            <th scope="col" class="text-center">Guruh</th>
+            <th scope="col"></th>
+          </tr>
           </thead>
           <tbody>
             <tr>
               <form action="{{route('search')}}" method="Post">
                 @csrf
                 <td>
+                  <input name="day" type="date" class="filter-select ">
+                  </input>
+                </td>
+                <td>
                   <select name="time" class="filter-select ">
-                    <option  disabled selected value>select time</option>
+                    <option  disabled selected value>vaqtni tanlang</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -39,7 +43,7 @@
                 </td>
                 <td>
                   <select name="room" class="filter-select">
-                  <option  disabled selected value>select room</option>
+                  <option  disabled selected value>xonani tanlang</option>
                   @foreach ($rooms as $room)
                       <option value="{{$room->number}}">{{$room->number}}</option>
                   @endforeach
@@ -47,7 +51,7 @@
               </td>
               <td>
                 <select name="subject" class="filter-select">
-                  <option disabled selected value>select subject</option>
+                  <option disabled selected value>fanni tanlang</option>
                   @foreach ($subjects as $subject)
                       <option value="{{$subject->name}}">{{$subject->name}}</option>
                   @endforeach
@@ -55,7 +59,7 @@
               </td>
               <td>
                 <select name="teacher" class="filter-select">
-                  <option disabled selected value>select teacher</option>
+                  <option disabled selected value>o'qituvchini tanlang</option>
                   @foreach ($teachers as $teacher)
                       <option value="{{$teacher->name}}">{{$teacher->name}}</option>
                   @endforeach
@@ -63,14 +67,14 @@
               </td>
               <td>
                 <select name="group" class="filter-select">
-                  <option disabled selected value>select group</option>
+                  <option disabled selected value>guruhni tanlang</option>
                   @foreach ($groups as $group)
                   <option value="{{$group->number}}">{{$group->number}}</option>
                   @endforeach
                 </select>
               </td >
                 <td class="text-center">
-                  <button type="submit" class="btn btn-primary ">Search</button>
+                  <button type="submit" class="btn btn-primary ">qidirish</button>
                   <button class="btn btn-warning "><a href="/schedule">All</a></button>
 
                 </form>

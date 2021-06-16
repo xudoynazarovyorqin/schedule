@@ -16,6 +16,7 @@ class SchedulesTable extends Migration
         Schema::dropIfExists('schedules');
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
+            $table->string('day');
             $table->integer('time');
             $table->integer('room');
             $table->string('subject');

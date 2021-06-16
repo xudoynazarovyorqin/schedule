@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title></title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback')}}">
@@ -45,28 +45,16 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
       
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
+      
       <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              logout
+              Chiqish
           </a>
           
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -101,7 +89,7 @@
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Qidirsh" aria-label="Search">
           <div class="input-group-append">
             <button class="btn btn-sidebar">
               <i class="fas fa-search fa-fw"></i>
@@ -116,46 +104,46 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link {{ Request::segment(1) === 'schedule' ?  null : 'active' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Asboblar paneli
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/teachers" class="nav-link active">
+              <li class="nav-item ">
+                <a href="{{url('teachers')}}" class="nav-link {{ Request::segment(1) === 'teachers' ? 'active' : null }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Teachers</p>
+                  <p>O'qituvchilar</p>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a href="{{url('subjects')}}" class="nav-link {{ Request::segment(1) === 'subjects' ? 'active' : null }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fanlar</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./subjects" class="nav-link">
+                <a href="{{url('groups')}}" class="nav-link {{ Request::segment(1) === 'groups' ? 'active' : null }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Subjects</p>
+                  <p>Guruhlar</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./groups" class="nav-link">
+                <a href="{{url('rooms')}}" class="nav-link {{ Request::segment(1) === 'rooms' ? 'active' : null }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Groups</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./rooms" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Rooms</p>
+                  <p>Xonalar</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="/schedule" class="nav-link">
+            <a href="/schedule" class="nav-link {{ Request::segment(1) === 'schedule' ? 'active' : null }}">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Schedule
-                <span class="right badge badge-danger">New</span>
+                Dars jadvali
+
               </p>
             </a>
           </li>
