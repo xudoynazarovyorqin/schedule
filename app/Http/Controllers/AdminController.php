@@ -31,7 +31,7 @@ class AdminController extends Controller
     }
     public function editTeacher(Request $request, $id)
     {
-        $teacher = Teacher::find( $id)->first();
+        $teacher = Teacher::where('id', $id)->first();
         $subjects = Subject::all();
         return view('admin.update-teacher', compact('teacher','subjects'));
     }

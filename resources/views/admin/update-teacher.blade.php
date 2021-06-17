@@ -8,11 +8,11 @@
   <table class="table" >
     <tbody>
       <tr>
-        <td><small>Name</small><input class="form-control input-lg " name="name" value="{{$teacher->name}}"></td>
-        <td><small>Surname</small><input class="form-control input-lg" name="surname" value="{{$teacher->surname }}"></td>
-        <td><small>Subject</small>
+        <td><small>Ismi</small><input class="form-control input-lg " name="name" value="{{$teacher->name}}"></td>
+        <td><small>Familiyasi</small><input class="form-control input-lg" name="surname" value="{{$teacher->surname }}"></td>
+        <td><small>Fani</small>
           <select name="subject" class="form-control input-lg " >
-            <option disabled selected value>select subject</option>
+            <option value="{{ $teacher->subject }}">{{ $teacher->subject }}</option>
             @foreach($subjects as $subject )
             <option value="{{ $subject->name }}">{{ $subject->name }}</option>
             @endforeach
@@ -22,7 +22,7 @@
         <div class="form-group row mb-0 mt-4 mr-3 d-flex " style="text-align: right">
           <div class="col-md-8 offset-md-4 mr-4">
             <button type="submit" class="btn btn-primary px-4">
-              {{ __('Next') }}
+              {{ __('Tahrirlash') }}
             </button>
           </div>
         </div>

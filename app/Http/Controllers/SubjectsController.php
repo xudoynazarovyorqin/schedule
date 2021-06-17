@@ -67,7 +67,8 @@ class SubjectsController extends Controller
      */
     public function edit($id)
     {
-        $subject = Subject::find( $id)->first();
+        $subject = Subject::where('id', $id)->first();
+        // dd($subject);
         return view('admin.subjects.update-subject', compact('subject'));
   
     }

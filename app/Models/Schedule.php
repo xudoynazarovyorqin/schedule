@@ -13,6 +13,7 @@ class Schedule extends Model
         'room',
         'teacher',
         'subject',
-        'group'
+        'group',
+        'day'
     ];
 }

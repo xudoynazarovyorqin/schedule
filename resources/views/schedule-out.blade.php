@@ -130,6 +130,7 @@ body, html {
           </tr>
           @foreach ($schedules as $schedule)
           <tr>
+            <td class="text-center">{{$schedule->day}}</td>
             <td class="text-center">{{$schedule->time}}</td>
             <td class="text-center">{{$schedule->room}}</td>
             <td class="text-center">{{$schedule->subject}}</td>

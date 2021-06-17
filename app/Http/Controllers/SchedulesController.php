@@ -57,34 +57,36 @@ class SchedulesController extends Controller
         $teachers = Teacher::all();
         $groups = Group::all();
 
+        $query  = Schedule::query();
 
-        if($request->time){
-            $search_time=$request->time;
-        }else $search_time=null;
-        if($request->room){
-            $search_room=$request->room;
-        }else $search_room=null;
-        if($request->group){
-            $search_group=$request->group;
-        }else $search_group=null;
-        if($request->subject){
-            $search_subject=$request->subject;
-        }else $search_subject=null;
-        if($request->teacher){
-            $search_teacher=$request->teacher;
-        }else $search_teacher=null;
-        
-        if($search_room||$search_group||$search_subject||$search_teacher||$search_time){
-            $schedules = Schedule::orwhere('group',$search_group)
-                                    ->orwhere('room',$search_room)
-                                    ->orwhere('subject',$search_subject)        
-                                    ->orwhere('teacher',$search_teacher)        
-                                    ->orwhere('time',$search_time)        
-                                    ->get();
-        }else{
-            $schedules = Schedule::get();
-        }
-            return view('schedule-out',compact('schedules','subjects','rooms','subjects','teachers','groups'));
+
+        if(isset($request->day) && !empty($request->day))
+        {
+            $query = $query->where('day', 'like', '%' . $request->day . '%' );  
+        } 
+        if(isset($request->time) && !empty($request->time))
+        {
+            $query = $query->where('time', 'like', '%' . $request->time . '%' );  
+        } 
+        if(isset($request->room) && !empty($request->room))
+        {
+            $query = $query->where('room', 'like', '%' . $request->room . '%' );  
+        } 
+        if(isset($request->subject) && !empty($request->subject))
+        {
+            $query = $query->where('subject', 'like', '%' . $request->subject . '%' );  
+        } 
+        if(isset($request->teacher) && !empty($request->teacher))
+        {
+            $query = $query->where('teacher', 'like', '%' . $request->teacher . '%' );  
+        } 
+        if(isset($request->group) && !empty($request->group))
+        {
+            $query = $query->where('group', 'like', '%' . $request->group . '%' );  
+        } 
+        $schedules = $query->get();
+
+        return view('schedule-out',compact('schedules','subjects','rooms','subjects','teachers','groups'));
         
     }
     /**
@@ -103,7 +105,9 @@ class SchedulesController extends Controller
     }
     public function create(Request $request)
     {
+        // dd($request);
         Schedule::create([
+            'day'=>$request->day,
             'time'=>$request->time,
             'room'=>$request->room,
             'subject'=>$request->subject,
@@ -186,33 +190,37 @@ class SchedulesController extends Controller
         $teachers = Teacher::all();
         $groups = Group::all();
 
+        $query  = Schedule::query();
 
-        if($request->time){
-            $search_time=$request->time;
-        }else $search_time=null;
-        if($request->room){
-            $search_room=$request->room;
-        }else $search_room=null;
-        if($request->group){
-            $search_group=$request->group;
-        }else $search_group=null;
-        if($request->subject){
-            $search_subject=$request->subject;
-        }else $search_subject=null;
-        if($request->teacher){
-            $search_teacher=$request->teacher;
-        }else $search_teacher=null;
+
+        if(isset($request->day) && !empty($request->day))
+        {
+            $query = $query->where('day', 'like', '%' . $request->day . '%' );  
+        } 
+        if(isset($request->time) && !empty($request->time))
+        {
+            $query = $query->where('time', 'like', '%' . $request->time . '%' );  
+        } 
+        if(isset($request->room) && !empty($request->room))
+        {
+            $query = $query->where('room', 'like', '%' . $request->room . '%' );  
+        } 
+        if(isset($request->subject) && !empty($request->subject))
+        {
+            $query = $query->where('subject', 'like', '%' . $request->subject . '%' );  
+        } 
+        if(isset($request->teacher) && !empty($request->teacher))
+        {
+            $query = $query->where('teacher', 'like', '%' . $request->teacher . '%' );  
+        } 
+        if(isset($request->group) && !empty($request->group))
+        {
+            $query = $query->where('group', 'like', '%' . $request->group . '%' );  
+        } 
+
         
-        if($search_room||$search_group||$search_subject||$search_teacher||$search_time){
-            $schedules = Schedule::orwhere('group',$search_group)
-                                    ->orwhere('room',$search_room)
-                                    ->orwhere('subject',$search_subject)        
-                                    ->orwhere('teacher',$search_teacher)        
-                                    ->orwhere('time',$search_time)        
-                                    ->get();
-        }else{
-            $schedules = Schedule::get();
-        }
+            $schedules = $query->get();
+        
         // dd($schedules); 
         return view('admin.schedule.schedule', compact('schedules','rooms','subjects','teachers','groups'));
     }
